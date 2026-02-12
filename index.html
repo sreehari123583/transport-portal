@@ -1,53 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sreehari Transport Tracking</title>
+  <title>EBIN Transport Tracking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial;
-      background-color: #f2f2f2;
-      text-align: center;
-      padding-top: 50px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
     }
 
-    .box {
+    .header {
+      background-color: #0b3d91;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .tracking-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .tracking-box {
       background: white;
-      width: 400px;
+      max-width: 500px;
       margin: auto;
-      padding: 20px;
-      box-shadow: 0 0 10px #ccc;
+      padding: 30px;
       border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     input {
-      padding: 10px;
       width: 80%;
-      margin-bottom: 10px;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
     button {
-      padding: 10px 20px;
-      background-color: navy;
+      padding: 12px 25px;
+      background-color: #0b3d91;
       color: white;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    #result {
-      margin-top: 20px;
+    button:hover {
+      background-color: #092f6b;
+    }
+
+    .details-card {
+      display: none;
+      background: white;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .status {
+      color: green;
       font-weight: bold;
+    }
+
+    .footer {
+      background-color: #0b3d91;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="box">
-    <h2>Track Your Shipment</h2>
-    <input type="text" id="lr" placeholder="Enter Consignment Number">
-    <br>
-    <button onclick="track()">Track</button>
-    <p id="result"></p>
+  <div class="header">
+    EBIN TRANSPORT SERVICE
+  </div>
+
+  <div class="tracking-section">
+    <div class="tracking-box">
+      <h2>Track Your Shipment</h2>
+      <input type="text" id="lr" placeholder="Enter Consignment Number">
+      <br>
+      <button onclick="track()">Track</button>
+      <p id="message"></p>
+    </div>
+  </div>
+
+  <div class="details-card" id="details">
+    <h3>Shipment Details</h3>
+    <p><strong>Consignment No:</strong> 1001</p>
+    <p><strong>From:</strong> Chennai</p>
+    <p><strong>To:</strong> Coimbatore</p>
+    <p><strong>Vehicle No:</strong> TN 09 AB 1234</p>
+    <p><strong>Status:</strong> <span class="status">In Transit</span></p>
+    <p><strong>POD:</strong> <a href="#">View POD</a></p>
+  </div>
+
+  <div class="footer">
+    © 2026 EBIN Transport | All Rights Reserved
   </div>
 
   <script>
@@ -55,11 +115,11 @@
       var lr = document.getElementById("lr").value;
 
       if (lr == "1001") {
-        document.getElementById("result").innerHTML =
-          "Status: In Transit | From: Chennai | To: Coimbatore";
+        document.getElementById("details").style.display = "block";
+        document.getElementById("message").innerHTML = "";
       } else {
-        document.getElementById("result").innerHTML =
-          "Consignment Not Found";
+        document.getElementById("details").style.display = "none";
+        document.getElementById("message").innerHTML = "Consignment Not Found";
       }
     }
   </script>
