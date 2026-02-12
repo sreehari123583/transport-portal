@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sreehari Transport Tracking</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .box {
+      background: white;
+      width: 400px;
+      margin: auto;
+      padding: 20px;
+      box-shadow: 0 0 10px #ccc;
+      border-radius: 8px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: navy;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Track Your Shipment</h2>
+    <input type="text" id="lr" placeholder="Enter Consignment Number">
+    <br>
+    <button onclick="track()">Track</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function track() {
+      var lr = document.getElementById("lr").value;
+
+      if (lr == "1001") {
+        document.getElementById("result").innerHTML =
+          "Status: In Transit | From: Chennai | To: Coimbatore";
+      } else {
+        document.getElementById("result").innerHTML =
+          "Consignment Not Found";
+      }
+    }
+  </script>
+
+</body>
+</html>
